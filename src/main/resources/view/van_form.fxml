@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.agency.controller.VanFormController">
+   <children>
+      <ImageView fitHeight="440.0" fitWidth="644.0">
+         <image>
+            <Image url="@../asserts.icon/Ice-Cream-Shop-Design-Ideas-5.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="440.0" opacity="0.71" stroke="TRANSPARENT" strokeType="INSIDE" width="644.0" />
+      <Text fill="WHITE" layoutX="263.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Van Manage">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <JFXButton buttonType="RAISED" layoutX="550.0" layoutY="390.0" onAction="#btnBackOnAction" prefHeight="33.0" prefWidth="66.0" style="-fx-background-color: #1000c4;" text="Back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

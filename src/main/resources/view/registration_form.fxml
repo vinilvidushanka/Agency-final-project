@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="544.0" prefWidth="884.0" style="-fx-background-color: #4072ac;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.agency.controller.RegistrationFormController">
+   <children>
+      <AnchorPane accessibleRole="TEXT_FIELD" layoutY="-1.0" prefHeight="544.0" prefWidth="420.0" style="-fx-background-color: white;">
+
+                     <children>
+            <Label layoutX="85.0" layoutY="223.0" text="User ID" />
+            <Label layoutX="124.0" layoutY="167.0" text="Registration Form" textFill="#868484">
+               <font>
+                  <Font name="Tahoma Bold" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUserId" layoutX="82.0" layoutY="246.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your user id here" styleClass="edge-button" stylesheets="@../../../../../First-semmester-final-project/src/main/resources/style/Style.css" />
+            <Label layoutX="85.0" layoutY="292.0" text="Username" />
+            <TextField fx:id="txtUsername" layoutX="82.0" layoutY="310.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your username here" styleClass="edge-button" stylesheets="@../../../../../First-semmester-final-project/src/main/resources/style/Style.css" />
+            <TextField fx:id="txtPassword" layoutX="82.0" layoutY="372.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your password here" styleClass="edge-button" stylesheets="@../../../../../First-semmester-final-project/src/main/resources/style/Style.css" />
+            <Label layoutX="84.0" layoutY="354.0" text="Password" />
+            <JFXButton buttonType="RAISED" graphicTextGap="20.0" layoutX="85.0" layoutY="454.0" onAction="#btnRegisterOnAction" prefHeight="28.0" prefWidth="246.0" style="-fx-background-color: #0077b6;" text="Register Now" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../asserts.icon/icons8-register-100.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label layoutX="178.0" layoutY="127.0" text="HAKMANA" textFill="#4072ac">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="125.0" layoutY="100.0" text="New D.A. Agency" textFill="#4072ac">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="68.0" fitWidth="106.0" layoutX="155.0" layoutY="30.0">
+               <image>
+                  <Image url="@../asserts.icon/kote001_kotmale_logo_new-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXButton buttonType="RAISED" layoutX="785.0" layoutY="39.0" onAction="#btnBackOnAction" prefHeight="18.0" prefWidth="66.0" style="-fx-background-color: white;" text="Back" textFill="#0077b6">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="17.0">
+               <image>
+                  <Image url="@../asserts.icon/icons8-back-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <ImageView fitHeight="409.0" fitWidth="435.0" layoutX="437.0" layoutY="75.0">
+         <image>
+            <Image url="@../asserts.icon/Remove-bg.ai_1714547699293.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

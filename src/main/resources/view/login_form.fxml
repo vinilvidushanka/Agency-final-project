@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="544.0" prefWidth="887.0" style="-fx-background-color: #4072ac;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.agency.controller.LoginFormController">
+   <AnchorPane fx:id="rootNode" accessibleRole="TEXT_FIELD" prefHeight="544.0" prefWidth="420.0" style="-fx-background-color: white;">
+      <children>
+         <Label layoutX="71.0" layoutY="206.0" text="Username" />
+         <Label layoutX="132.0" layoutY="131.0" text="New D.A. Agency" textFill="#4072ac">
+            <font>
+               <Font name="System Bold" size="19.0" />
+            </font>
+         </Label>
+         <Label layoutX="178.0" layoutY="159.0" text="HAKMANA" textFill="#4072ac">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label layoutX="159.0" layoutY="82.0" text="WELCOME TO" textAlignment="CENTER" textFill="#797979">
+            <font>
+               <Font name="Bodoni MT Black" size="13.0" />
+            </font>
+         </Label>
+         <TextField fx:id="txtUserName" layoutX="68.0" layoutY="229.0" prefHeight="28.0" prefWidth="256.0" promptText="Username">
+            <styleClass>
+               <String fx:value="edge-button" />
+               <String fx:value="edge-button" />
+            </styleClass>
+         </TextField>
+         <Label layoutX="71.0" layoutY="272.0" text="Password" />
+         <JFXButton blendMode="SRC_ATOP" buttonType="RAISED" cache="true" graphicTextGap="9.0" layoutX="68.0" layoutY="374.0" onAction="#btnLoginOnAction" prefHeight="32.0" prefWidth="256.0" style="-fx-background-color: #0077b6;" styleClass="edge button" text="Login" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+               <Glow />
+            </effect>
+            <graphic>
+               <ImageView fitHeight="18.0" fitWidth="24.0">
+                  <image>
+                     <Image url="@../asserts.icon/icons8-login-96.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </JFXButton>
+         <Label layoutX="70.0" layoutY="440.0" text="Don't have an account?" textFill="#5a696e" />
+         <Hyperlink layoutX="233.0" layoutY="438.0" onAction="#linkRegistrationOnAction" prefHeight="22.0" prefWidth="121.0" text="Register on here" textFill="#0d0d0d" />
+         <ImageView fitHeight="68.0" fitWidth="106.0" layoutX="156.0" layoutY="14.0">
+            <image>
+               <Image url="@../asserts.icon/kote001_kotmale_logo_new-removebg-preview.png" />
+            </image>
+         </ImageView>
+         <PasswordField fx:id="txtPassword" layoutX="68.0" layoutY="290.0" prefHeight="28.0" prefWidth="256.0" promptText="Password" />
+      </children>
+   </AnchorPane>
+   <ImageView fitHeight="409.0" fitWidth="435.0" layoutX="448.0" layoutY="65.0">
+      <image>
+         <Image url="@../asserts.icon/Remove-bg.ai_1714547699293.png" />
+      </image>
+   </ImageView>
+</AnchorPane>

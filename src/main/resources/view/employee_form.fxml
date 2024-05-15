@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="588.0" prefWidth="1000.0" style="-fx-background-color: ade8f4; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.agency.controller.EmployeeFormController">
+   <children>
+      <ImageView fitHeight="588.0" fitWidth="1000.0" opacity="0.42">
+         <image>
+            <Image url="@../asserts.icon/9307421.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="403.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Manage">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="294.0" layoutY="79.0" text="Employee Id:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtId" layoutX="293.0" layoutY="100.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="206.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="597.0" layoutY="79.0" text="Name:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="596.0" layoutY="101.0" prefHeight="30.0" prefWidth="206.0">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="294.0" layoutY="154.0" text="NIC:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNIC" layoutX="293.0" layoutY="174.0" prefHeight="30.0" prefWidth="206.0">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="597.0" layoutY="154.0" text="Address:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAddress" layoutX="596.0" layoutY="174.0" prefHeight="30.0" prefWidth="206.0">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="295.0" layoutY="237.0" text="Contact:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtContact" layoutX="294.0" layoutY="260.0" prefHeight="30.0" prefWidth="206.0">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="596.0" layoutY="237.0" text="Van ID:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="322.0" fitWidth="344.0" layoutY="33.0">
+         <image>
+            <Image url="@../asserts.icon/Remove-bg.ai_1714841677816.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblEmployee" layoutX="67.0" layoutY="320.0" prefHeight="245.0" prefWidth="878.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="110.4000015258789" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="172.79995727539062" text="Name" />
+            <TableColumn fx:id="colNIC" prefWidth="169.60000610351562" text="NIC" />
+            <TableColumn fx:id="colAddress" prefWidth="173.60003662109375" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="151.99993896484375" text="Contact" />
+            <TableColumn fx:id="colVanId" prefWidth="102.4000244140625" text="Van ID" />
+        </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="850.0" layoutY="85.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #0077b6;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../asserts.icon/icons8-update-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="850.0" layoutY="142.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #0077b6;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../asserts.icon/icons8-save-48.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="850.0" layoutY="205.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #0077b6;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../asserts.icon/icons8-clear-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="850.0" layoutY="265.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #0077b6;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+               <image>
+                  <Image url="@../asserts.icon/icons8-delete-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <ComboBox fx:id="cmbVanId" layoutX="596.0" layoutY="260.0" prefHeight="30.0" prefWidth="206.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/LauncherWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CreditBillFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyLoadingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyTransactionFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DashboardFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/EmployeeFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/LoginFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/OrdersFromController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/RegistrationFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/RouteFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/VanFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/db/DbConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/CreditBill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/DailyTransaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Expenses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Loading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/LoadingDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/OrderDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/PlaceLoading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/PlaceOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/PlaceSalesReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Route.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Salary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/SalesReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Stock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Van.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/CartTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/CreditBillTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/CustomerTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/DailyTransactionTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/EmployeeTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/ExpensesTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/LoadingDetailTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/LoadingTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/OrderTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/PlacesalesReportTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/RouteTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/SalaryTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/SaleCartTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/SalesReportTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/StockTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CreditBillRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CustomerRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/DailyTransactionRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/EmployeeRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ExpensesRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ItemRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingDetailRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/OrderDetailRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/OrderRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/PlaceLoadingRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/PlaceOrderRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/PlaceSalesRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/RouteRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/SalaryRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/SalesRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/VanRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/10886.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/9307421.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/9307751.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Black___Blue_Minimalist_Modern_Initial_Font_Logo__1_-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Ice-Cream-Shop-Design-Ideas-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Monochrome_Modern_Technology_Black_Logo__1_-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714011622220.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714547699293.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714841098373.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714841391752.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714841677816.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714848354499.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714848411724.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1715357313271.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1715395972073.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1715397231995.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/clip-man-with-clipboard-receiving-delivery.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-add-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-back-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-bill-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-clear-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-customer-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-dashboard-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-delete-30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-employee-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-employee-16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-exit-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-expenses-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-loading-truck-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-login-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-near-me-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-order-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-register-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-report-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-salary-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-save-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-stock-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-transaction-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-truck-ramp-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-update-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-user-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-van-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/kote001_kotmale_logo_new-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/urban-204.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/exit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/creditbill_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dailyLoading_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dailyTransaction_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/registration_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/route_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/stock_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/van_form.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2erw6LbgurPjfDTU1huZTce87IZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="java.lang" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\agency\src\main\resources\asserts.icon" />
+      <recent name="C:\Users\User\IdeaProjects\agency\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="LauncherWrapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lk.ijse.agency.LauncherWrapper" />
+      <module name="agency" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lk.ijse.agency.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LauncherWrapper" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="" />
+      <created>1712675830415</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712675830415</updated>
+      <workItem from="1712675831525" duration="6853000" />
+      <workItem from="1712715731520" duration="7790000" />
+      <workItem from="1713931003596" duration="1363000" />
+      <workItem from="1714007596023" duration="11623000" />
+      <workItem from="1714060115152" duration="1120000" />
+      <workItem from="1714140788484" duration="1150000" />
+      <workItem from="1714188046630" duration="8413000" />
+      <workItem from="1714201792342" duration="19372000" />
+      <workItem from="1714271656413" duration="2303000" />
+      <workItem from="1714294489752" duration="18785000" />
+      <workItem from="1714388326606" duration="21566000" />
+      <workItem from="1714438296906" duration="6365000" />
+      <workItem from="1714454923643" duration="2506000" />
+      <workItem from="1714544902094" duration="21594000" />
+      <workItem from="1714613171709" duration="1653000" />
+      <workItem from="1714628764944" duration="15401000" />
+      <workItem from="1714655185566" duration="9696000" />
+      <workItem from="1714719544395" duration="4473000" />
+      <workItem from="1714746982641" duration="3876000" />
+      <workItem from="1714792534777" duration="85000" />
+      <workItem from="1714797421970" duration="904000" />
+      <workItem from="1714822393423" duration="10785000" />
+      <workItem from="1714880520881" duration="9700000" />
+      <workItem from="1714918399051" duration="4114000" />
+      <workItem from="1714993514770" duration="1365000" />
+      <workItem from="1715048925411" duration="25069000" />
+      <workItem from="1715135149333" duration="14809000" />
+      <workItem from="1715234319455" duration="21176000" />
+      <workItem from="1715312091015" duration="325000" />
+      <workItem from="1715312491458" duration="5627000" />
+      <workItem from="1715338973818" duration="11117000" />
+      <workItem from="1715394643016" duration="8829000" />
+      <workItem from="1715428555318" duration="6185000" />
+      <workItem from="1715519805540" duration="66000" />
+      <workItem from="1715578971694" duration="19730000" />
+      <workItem from="1715657254345" duration="21657000" />
+      <workItem from="1715697048510" duration="3441000" />
+      <workItem from="1715744499543" duration="13100000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
