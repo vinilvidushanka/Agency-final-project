@@ -1,0 +1,136 @@
+
+Create database ice_cream_agency;
+
+use ice_cream_agency;
+
+Create table admin(
+Id varchar(10) primary key,
+userName varchar(20),
+Password varchar(20)
+);
+
+Create table van(
+van_id varchar(10) primary key,
+number varchar(10)
+);
+
+Create table employee(
+employee_id varchar(10) primary key,
+name varchar(30),
+NIC varchar(20),
+address varchar(50),
+contact int(10),
+van_id varchar(10),
+foreign key(van_id) references van(van_id) on delete cascade on update cascade
+);
+
+Create table salary(
+salary_id varchar(20) primary key,
+employee_id varchar(10),
+Date date,
+amount double,
+foreign key(employee_id) references employee(employee_id) on delete cascade on update cascade
+);
+
+Create table expenses(
+code varchar(10) primary key,
+van_id varchar(10),
+amount double,
+description varchar(50),
+Date date,
+foreign key(van_id) references van(van_id) on delete cascade on update cascade
+);
+
+
+Create table route(
+route_id varchar(10) primary key,
+Name varchar(20),
+van_id varchar(10),
+day varchar(20),
+foreign key(van_id) references van(van_id) on delete cascade on update cascade
+);
+
+Create table customer(
+cus_id varchar(20) primary key,
+name varchar(20),
+shop_name varchar(30),
+contact int(10),
+address varchar(50),
+route_id varchar(10),
+foreign key(route_id) references route(route_id) on delete cascade on update cascade
+);
+
+Create table credit_bill(
+bill_id varchar(20) primary key,
+amount double,
+date date,
+cus_id varchar(20),
+foreign key(cus_id) references customer(cus_id) on delete cascade on update cascade,
+route_id varchar(10),
+foreign key(route_id) references route(route_id) on delete cascade on update cascade
+);
+
+Create table stock(
+code varchar(20) primary key,
+name varchar(20),
+price double,
+qty int(10)
+);
+
+Create table daily_item_loading_report(
+report_id varchar(20) primary key,
+item_code varchar(20),
+qty int(10),
+date date,
+vanId varchar(20),
+name varchar(20),
+foreign key(item_code) references stock(item_code) on delete cascade on update cascade
+);
+
+
+
+Create table van_item_loading(
+van_id varchar(10),
+report_id varchar(20),
+Item_code varchar(20),
+qty int(10),
+foreign key(van_id) references van(van_id) on delete cascade on update cascade,
+foreign key(report_id) references daily_item_loading_report(report_id) on delete cascade on update cascade
+);
+
+Create table sales_report(
+bill_code varchar(20) primary key,
+item_code varchar(20),
+qty int(10),
+amount double,
+free_qty int(10),
+date date,
+van_id varchar(10),
+foreign key(van_id) references van(van_id) on delete cascade on update cascade,
+foreign key(item_code ) references stock(item_code ) on delete cascade on update cascade
+);
+
+Create table orders(
+order_id varchar(20) primary key,
+item_code varchar(20),
+item_name varchar(50),
+qty int(10),
+date date,
+foreign key(item_code ) references stock(item_code ) on delete cascade on update cascade
+);
+
+Create table order_details(
+order_id varchar(20),
+item_code varchar(20),
+qty int(10),
+foreign key(order_id  ) references orders(order_id  ) on delete cascade on update cascade,
+foreign key(item_code ) references stock(item_code ) on delete cascade on update cascade
+);
+
+Create table daily_transaction(
+bill_id varchar(20) primary key,
+amount double,
+date date,
+van_id varchar(10),
+foreign key(van_id) references van(van_id) on delete cascade on update cascade
+);

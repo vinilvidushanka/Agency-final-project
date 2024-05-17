@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="change">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/dbCode" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/LoginFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +143,7 @@
       <workItem from="1715893533634" duration="3576000" />
       <workItem from="1715910636667" duration="3001000" />
       <workItem from="1715914827281" duration="718000" />
-      <workItem from="1715922703351" duration="3769000" />
+      <workItem from="1715922703351" duration="8581000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -155,11 +153,30 @@
       <option name="project" value="LOCAL" />
       <updated>1715922829177</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="change">
+      <option name="closed" value="true" />
+      <created>1715928139135</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715928139135</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change" />
