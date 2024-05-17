@@ -4,29 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/util/ValidateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-print-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jasper" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jrxml" afterDir="false" />
+    <list default="true" id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyTransactionFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyTransactionFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/EmployeeFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/OrdersFromController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/OrdersFromController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ItemRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ItemRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/stock_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/stock_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,11 +145,25 @@
       <workItem from="1715893533634" duration="3576000" />
       <workItem from="1715910636667" duration="3001000" />
       <workItem from="1715914827281" duration="718000" />
+      <workItem from="1715922703351" duration="3769000" />
     </task>
+    <task id="LOCAL-00001" summary="change">
+      <option name="closed" value="true" />
+      <created>1715922829177</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715922829177</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="change" />
+    <option name="LAST_COMMIT_MESSAGE" value="change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

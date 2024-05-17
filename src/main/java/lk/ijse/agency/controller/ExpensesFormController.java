@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.agency.model.Employee;
@@ -220,5 +221,9 @@ public class ExpensesFormController {
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "expenses deleted!").show();
         }
+    }
+
+    public void txtKeyRelease(KeyEvent keyEvent) {
+
     }
 }
