@@ -34,7 +34,7 @@ public class StockRepo {
     }
 
     public static boolean update(Stock stock) throws SQLException {
-        String sql = "UPDATE stock SET name = ?, unit_price = ?, qty = ? WHERE item_code = ?";
+        String sql = "UPDATE stock SET name = ?, price = ?, qty = ? WHERE code = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
@@ -49,7 +49,7 @@ public class StockRepo {
     }
 
     public static Stock searchById(String itemCode) throws SQLException {
-        String sql = "SELECT * FROM stock WHERE item_code = ?";
+        String sql = "SELECT * FROM stock WHERE code = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
@@ -109,7 +109,7 @@ public class StockRepo {
     }
 
     public static Stock searchByItemCode(String itemCode) throws SQLException {
-        String sql = "SELECT * FROM stock WHERE item_code = ?";
+        String sql = "SELECT * FROM stock WHERE code = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
@@ -133,7 +133,7 @@ public class StockRepo {
 
 
     public static boolean delete(String itemCode) throws SQLException {
-        String sql = "DELETE FROM stock WHERE item_code = ?";
+        String sql = "DELETE FROM stock WHERE code = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
@@ -171,7 +171,7 @@ public class StockRepo {
         return true;
     }
     static boolean updateLoadingQty(LoadingDetail ld) throws SQLException {
-        String sql = "UPDATE stock SET qty = qty - ? WHERE item_code = ?";
+        String sql = "UPDATE stock SET qty = qty - ? WHERE code = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
         System.out.println("update qty?");
@@ -184,7 +184,7 @@ public class StockRepo {
 
 
     public static boolean updateSaleQty(SalesReport ps) throws SQLException {
-        String sql = "UPDATE stock SET qty = qty - ? WHERE item_code = ?";
+        String sql = "UPDATE stock SET qty = qty - ? WHERE code = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
         System.out.println("update qty?");

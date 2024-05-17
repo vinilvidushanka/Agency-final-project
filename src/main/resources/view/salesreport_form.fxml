@@ -31,7 +31,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtBillCode" layoutX="143.0" layoutY="101.0" onAction="#txtAddOrderIdOnAction" prefHeight="30.0" prefWidth="138.0">
+      <TextField fx:id="txtBillCode" layoutX="143.0" layoutY="101.0" onAction="#txtAddOrderIdOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -39,7 +39,7 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtDate" layoutX="479.0" layoutY="101.0" onAction="#txtAddDateOnAction" prefHeight="30.0" prefWidth="138.0">
+      <TextField fx:id="txtDate" layoutX="479.0" layoutY="101.0" onAction="#txtAddDateOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -75,7 +75,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQty" layoutX="605.0" layoutY="195.0" onAction="#txtQtyOnAction" prefHeight="30.0" prefWidth="75.0">
+      <TextField fx:id="txtQty" layoutX="605.0" layoutY="195.0" onAction="#txtQtyOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -83,13 +83,13 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <ComboBox fx:id="cmbItemCode" layoutX="55.0" layoutY="195.0" onAction="#cmbItemCodeOnAction" prefHeight="30.0" prefWidth="127.0" />
+      <ComboBox fx:id="cmbItemCode" layoutX="55.0" layoutY="195.0" onAction="#cmbItemCodeOnAction" prefHeight="30.0" prefWidth="127.0" style="-fx-background-radius: 10;" />
       <Label layoutX="704.0" layoutY="171.0" text="Free Qty:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFQty" layoutX="704.0" layoutY="195.0" onAction="#txtFQtyOnAction" prefHeight="30.0" prefWidth="75.0">
+      <TextField fx:id="txtFQty" layoutX="704.0" layoutY="195.0" onAction="#txtFQtyOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -97,7 +97,7 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="842.0" layoutY="195.0" onAction="#btnAddItemOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #2980b9;" text="Add Item" textFill="WHITE">
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="842.0" layoutY="195.0" onAction="#btnAddItemOnAction" prefHeight="30.0" prefWidth="92.0" style="-fx-background-color: #2980b9; -fx-background-radius: 20;" text="Add Item" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
@@ -112,7 +112,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="828.0" layoutY="529.0" onAction="#btnPlaceReportOnAction" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #34495e;" text="Place Report" textFill="WHITE">
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="828.0" layoutY="529.0" onAction="#btnPlaceReportOnAction" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #34495e; -fx-background-radius: 20;" text="Place Report" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -158,6 +158,6 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <ComboBox fx:id="cmbVanId" layoutX="795.0" layoutY="99.0" prefHeight="30.0" prefWidth="138.0" />
+      <ComboBox fx:id="cmbVanId" layoutX="795.0" layoutY="99.0" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10;" />
    </children>
 </AnchorPane>

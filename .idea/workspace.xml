@@ -5,141 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/Launcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/LauncherWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CreditBillFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyLoadingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyTransactionFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DashboardFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/EmployeeFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/LoginFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/OrdersFromController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/RegistrationFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/RouteFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/VanFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/db/DbConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/CreditBill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/DailyTransaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Expenses.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Loading.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/LoadingDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/OrderDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/PlaceLoading.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/PlaceOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/PlaceSalesReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Route.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Salary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/SalesReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Stock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/Van.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/CartTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/CreditBillTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/CustomerTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/DailyTransactionTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/EmployeeTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/ExpensesTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/LoadingDetailTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/LoadingTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/OrderTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/PlacesalesReportTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/RouteTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/SalaryTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/SaleCartTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/SalesReportTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/model/tm/StockTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CreditBillRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CustomerRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/DailyTransactionRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/EmployeeRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ExpensesRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ItemRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingDetailRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/OrderDetailRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/OrderRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/PlaceLoadingRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/PlaceOrderRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/PlaceSalesRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/RouteRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/SalaryRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/SalesRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/VanRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/10886.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/9307421.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/9307751.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Black___Blue_Minimalist_Modern_Initial_Font_Logo__1_-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Ice-Cream-Shop-Design-Ideas-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Monochrome_Modern_Technology_Black_Logo__1_-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714011622220.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714547699293.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714841098373.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714841391752.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714841677816.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714848354499.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1714848411724.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1715357313271.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1715395972073.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/Remove-bg.ai_1715397231995.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/clip-man-with-clipboard-receiving-delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-add-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-back-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-bill-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-clear-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-customer-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-dashboard-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-delete-30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-employee-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-employee-16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-exit-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-expenses-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-loading-truck-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-login-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-near-me-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-order-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-register-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-report-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-salary-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-save-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-stock-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-transaction-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-truck-ramp-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-update-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-user-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-van-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/kote001_kotmale_logo_new-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/urban-204.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/style/blue.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/creditbill_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dailyLoading_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dailyTransaction_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/registration_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/route_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/stock_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/van_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/util/ValidateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/icons8-print-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyTransactionFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/DailyTransactionFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/EmployeeFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/ExpensesFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/OrdersFromController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/OrdersFromController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ItemRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ItemRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/LoadingRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/stock_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/stock_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +60,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/agency/src/main/resources/report&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -193,6 +81,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="java.lang" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\agency\src\main\resources\report" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\IdeaProjects\agency\src\main\resources\asserts.icon" />
@@ -264,7 +155,12 @@
       <workItem from="1715578971694" duration="19730000" />
       <workItem from="1715657254345" duration="21657000" />
       <workItem from="1715697048510" duration="3441000" />
-      <workItem from="1715744499543" duration="13100000" />
+      <workItem from="1715744499543" duration="16682000" />
+      <workItem from="1715769059941" duration="852000" />
+      <workItem from="1715829254382" duration="13724000" />
+      <workItem from="1715893533634" duration="3576000" />
+      <workItem from="1715910636667" duration="3001000" />
+      <workItem from="1715914827281" duration="718000" />
     </task>
     <servers />
   </component>

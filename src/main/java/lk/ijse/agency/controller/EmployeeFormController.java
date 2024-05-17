@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.agency.model.Customer;
@@ -18,11 +20,14 @@ import lk.ijse.agency.repository.CustomerRepo;
 import lk.ijse.agency.repository.EmployeeRepo;
 import lk.ijse.agency.repository.RouteRepo;
 import lk.ijse.agency.repository.VanRepo;
+import lk.ijse.agency.util.ValidateUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class EmployeeFormController {
 
@@ -67,6 +72,7 @@ public class EmployeeFormController {
     @FXML
     private ComboBox<String> cmbVanId;
 
+    private LinkedHashMap<TextField, Pattern> map=new LinkedHashMap<>();
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
@@ -87,6 +93,19 @@ public class EmployeeFormController {
         setCellValueFactory();
         loadEmployeeTable();
         getVanId();
+
+        Pattern patternId = Pattern.compile("^(E0)[0-9]{5}$");
+        Pattern patternName = Pattern.compile("^[A-z]{3,}$");  //[0-9 a-z]{10}
+        Pattern patternNIC = Pattern.compile("^[0-9 V]{12}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+        Pattern patternAddress = Pattern.compile("^[A-z]{3,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+        Pattern patternContact = Pattern.compile("^[0-9]{10}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+
+        map.put(txtId, patternId);
+        map.put(txtName, patternName);
+        map.put(txtNIC, patternNIC);
+        map.put(txtAddress, patternAddress);
+        map.put(txtContact, patternContact);
+
     }
 
     private void getVanId() {
@@ -158,7 +177,7 @@ public class EmployeeFormController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction( ) {
         String id = txtId.getText();
         String name = txtName.getText();
         String nic = txtNIC.getText();
@@ -172,6 +191,7 @@ public class EmployeeFormController {
             boolean isSaved = EmployeeRepo.save(employee);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "employee saved!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -225,6 +245,19 @@ public class EmployeeFormController {
         boolean isDeleted = EmployeeRepo.delete(id);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "employee deleted!").show();
+        }
+    }
+
+    public void txtKeyRelease(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+
+            Object respond =  ValidateUtil.validation(map);
+            if (respond instanceof TextField) {
+                TextField textField = (TextField) respond;
+                textField.requestFocus();
+            } else {
+                btnSaveOnAction();
+            }
         }
     }
 }

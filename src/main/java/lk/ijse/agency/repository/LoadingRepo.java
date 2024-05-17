@@ -15,7 +15,7 @@ public class LoadingRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        System.out.println("loading save?");
+        System.out.println("loading save? "+loading);
 
         pstm.setObject(1, loading.getRepoId());
         pstm.setObject(2, loading.getItemCode());

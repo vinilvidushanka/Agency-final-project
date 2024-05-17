@@ -161,6 +161,7 @@ public class DailyTransactionFormController {
             boolean isSaved = DailyTransactionRepo.save(dailyTransaction);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "daily transaction saved!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

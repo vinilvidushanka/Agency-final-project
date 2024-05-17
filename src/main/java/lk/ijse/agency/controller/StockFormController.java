@@ -13,16 +13,23 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.agency.db.DbConnection;
 import lk.ijse.agency.model.Customer;
 import lk.ijse.agency.model.Stock;
 import lk.ijse.agency.model.tm.StockTm;
 import lk.ijse.agency.repository.CustomerRepo;
 import lk.ijse.agency.repository.ExpensesRepo;
 import lk.ijse.agency.repository.StockRepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class StockFormController {
@@ -131,6 +138,7 @@ public class StockFormController {
             boolean isSaved = StockRepo.save(stock);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "stock saved!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -182,6 +190,20 @@ public class StockFormController {
         boolean isDeleted = StockRepo.delete(itemCode);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "item deleted!").show();
+        }
+    }
+
+    public void btnPrintOnAction(ActionEvent event) {
+
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/report/agencyStock.jrxml"));
+            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null,connection);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException | SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

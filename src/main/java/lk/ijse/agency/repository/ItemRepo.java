@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ItemRepo {
     public static List<String> getCodes() throws SQLException {
-        String sql = "SELECT item_code FROM stock";
+        String sql = "SELECT code FROM stock";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);

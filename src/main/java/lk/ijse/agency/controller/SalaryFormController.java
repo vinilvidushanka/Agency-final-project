@@ -167,6 +167,7 @@ public class SalaryFormController {
             boolean isSaved = SalaryRepo.save(salary);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "salary saved!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

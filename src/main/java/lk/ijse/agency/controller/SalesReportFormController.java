@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.agency.model.*;
 import lk.ijse.agency.model.tm.SaleCartTm;
@@ -13,10 +15,13 @@ import lk.ijse.agency.repository.ItemRepo;
 import lk.ijse.agency.repository.PlaceSalesRepo;
 import lk.ijse.agency.repository.StockRepo;
 import lk.ijse.agency.repository.VanRepo;
+import lk.ijse.agency.util.ValidateUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class SalesReportFormController {
 
@@ -72,12 +77,23 @@ public class SalesReportFormController {
 
     private double amount = 0;
 
+    private LinkedHashMap<TextField, Pattern> map=new LinkedHashMap<>();
     private ObservableList<SaleCartTm> cartList = FXCollections.observableArrayList();
 
     public void initialize() {
         setCellValueFactory();
         getItemCode();
         getVanId();
+
+        Pattern patternBillCode = Pattern.compile("^(B0)[0-9]{5}$");
+        Pattern patternDate = Pattern.compile("^[0-9 -]{3,}$");  //[0-9 a-z]{10}
+        Pattern patternQty = Pattern.compile("^[0-9 ]{1,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+        Pattern patternFQty = Pattern.compile("^[0-9]{1,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+
+        map.put(txtBillCode, patternBillCode);
+        map.put(txtDate, patternDate);
+        map.put(txtQty, patternQty);
+        map.put(txtFQty, patternFQty);
     }
 
     private void getVanId() {
@@ -119,7 +135,7 @@ public class SalesReportFormController {
     }
 
     @FXML
-    void btnAddItemOnAction(ActionEvent event) {
+    void btnAddItemOnAction( ) {
         String billCode=txtBillCode.getText();
         String itemCode = cmbItemCode.getValue();
         String itemName = lblName.getText();
@@ -179,17 +195,17 @@ public class SalesReportFormController {
 
     @FXML
     void txtAddDateOnAction(ActionEvent event) {
-        btnAddItemOnAction(event);
+        btnAddItemOnAction();
     }
 
     @FXML
     void txtAddOrderIdOnAction(ActionEvent event) {
-        btnAddItemOnAction(event);
+        btnAddItemOnAction();
     }
 
     @FXML
     void txtQtyOnAction(ActionEvent event) {
-        btnAddItemOnAction(event);
+        btnAddItemOnAction();
     }
 
     public void btnPlaceReportOnAction(ActionEvent event) {
@@ -229,10 +245,23 @@ public class SalesReportFormController {
     }
 
     public void txtFQtyOnAction(ActionEvent event) {
-        btnAddItemOnAction(event);
+        btnAddItemOnAction();
     }
 
     public void txtAddVanIdOnAction(ActionEvent event) {
-        btnAddItemOnAction(event);
+        btnAddItemOnAction();
+    }
+
+    public void txtKeyRelease(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+
+            Object respond =  ValidateUtil.validation(map);
+            if (respond instanceof TextField) {
+                TextField textField = (TextField) respond;
+                textField.requestFocus();
+            } else {
+                btnAddItemOnAction();
+            }
+        }
     }
 }

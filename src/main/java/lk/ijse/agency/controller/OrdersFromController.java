@@ -16,11 +16,16 @@ import lk.ijse.agency.model.tm.OrderTm;
 import lk.ijse.agency.repository.ItemRepo;
 import lk.ijse.agency.repository.PlaceOrderRepo;
 import lk.ijse.agency.repository.StockRepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class OrdersFromController {
@@ -191,4 +196,20 @@ public class OrdersFromController {
         btnAddItemOnAction(event);
     }
 
+    public void btnPrintOnAction(ActionEvent event) {
+        HashMap hashmap = new HashMap<>();
+        hashmap.put("id", txtId.getText());
+        hashmap.put("code", cmbItemCode.getValue());
+        hashmap.put("name",lblName.getText());
+        hashmap.put("qty", txtQty.getText());
+
+        try {
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/report/agencyReport.jrxml"));
+            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hashmap, new JREmptyDataSource());
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

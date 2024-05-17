@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.agency.model.Customer;
@@ -15,11 +17,14 @@ import lk.ijse.agency.model.tm.CustomerTm;
 import lk.ijse.agency.repository.CustomerRepo;
 import lk.ijse.agency.repository.ItemRepo;
 import lk.ijse.agency.repository.RouteRepo;
+import lk.ijse.agency.util.ValidateUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class CustomerFormController {
 
@@ -45,6 +50,10 @@ public class CustomerFormController {
     private TextField txtId;
     @FXML
     private ComboBox<String> cmbRouteId;
+
+
+
+    final LinkedHashMap<TextField, Pattern> map=new LinkedHashMap<>();
 
 
     @FXML
@@ -84,6 +93,19 @@ public class CustomerFormController {
         setCellValueFactory();
         loadCustomerTable();
         getRouteId();
+
+        Pattern patternId = Pattern.compile("^(C0)[0-9]{5}$");
+        Pattern patternName = Pattern.compile("^[A-z]{3,}$");  //[0-9 a-z]{10}
+        Pattern patternShopName = Pattern.compile("^[A-z]{3,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+        Pattern patternContact = Pattern.compile("^[0-9]{10}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+        Pattern patternAddress = Pattern.compile("^[A-z]{3,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
+
+        map.put(txtId, patternId);
+        map.put(txtName, patternName);
+        map.put(txtShopName, patternShopName);
+        map.put(txtContact, patternContact);
+        map.put(txtAddress, patternAddress);
+
     }
 
     private void getRouteId() {
@@ -173,7 +195,7 @@ public class CustomerFormController {
         }
     }
 
-    public void btnSaveOnAction(ActionEvent actionEvent) {
+    public void btnSaveOnAction() {
         String id = txtId.getText();
         String name = txtName.getText();
         String shopName = txtShopName.getText();
@@ -187,6 +209,7 @@ public class CustomerFormController {
             boolean isSaved = CustomerRepo.save(customer);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -199,6 +222,19 @@ public class CustomerFormController {
         boolean isDeleted = CustomerRepo.delete(id);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+        }
+    }
+
+    public void txtKeyRelease(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+
+            Object respond =  ValidateUtil.validation(map);
+            if (respond instanceof TextField) {
+                TextField textField = (TextField) respond;
+                textField.requestFocus();
+            } else {
+                btnSaveOnAction();
+            }
         }
     }
 }

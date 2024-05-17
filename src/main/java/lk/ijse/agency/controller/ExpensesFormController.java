@@ -165,6 +165,7 @@ public class ExpensesFormController {
             boolean isSaved = ExpensesRepo.save(expenses);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "expenses saved!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

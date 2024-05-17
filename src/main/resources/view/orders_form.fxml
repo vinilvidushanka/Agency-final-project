@@ -90,7 +90,7 @@
          </font>
       </Label>
       <ComboBox fx:id="cmbItemCode" layoutX="67.0" layoutY="209.0" onAction="#cmbItemCodeOnAction" prefHeight="30.0" prefWidth="127.0" />
-      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="828.0" layoutY="515.0" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #34495e;" text="Place Order" textFill="WHITE">
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="826.0" layoutY="529.0" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #34495e;" text="Place Order" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -105,7 +105,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TableView fx:id="tblOrders" layoutX="67.0" layoutY="300.0" prefHeight="245.0" prefWidth="660.0">
+      <TableView fx:id="tblOrders" layoutX="67.0" layoutY="300.0" prefHeight="260.0" prefWidth="660.0">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="219.1999969482422" text="Item Code" />
           <TableColumn fx:id="colName" prefWidth="303.20001220703125" text="Name" />

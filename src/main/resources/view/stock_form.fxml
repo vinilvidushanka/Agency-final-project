@@ -62,12 +62,12 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <Label layoutX="305.0" layoutY="196.0" text="Unit Price:">
+      <Label layoutX="305.0" layoutY="188.0" text="Unit Price:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUnitPrice" layoutX="305.0" layoutY="221.0" opacity="0.84" prefHeight="30.0" prefWidth="206.0">
+      <TextField fx:id="txtUnitPrice" layoutX="305.0" layoutY="212.0" opacity="0.84" prefHeight="30.0" prefWidth="206.0">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -75,12 +75,12 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <Label layoutX="577.0" layoutY="196.0" text="Qty:">
+      <Label layoutX="577.0" layoutY="188.0" text="Qty:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQty" layoutX="577.0" layoutY="221.0" opacity="0.84" prefHeight="30.0" prefWidth="206.0">
+      <TextField fx:id="txtQty" layoutX="577.0" layoutY="213.0" opacity="0.84" prefHeight="30.0" prefWidth="206.0">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -153,5 +153,20 @@
             <Image url="@../asserts.icon/urban-204.png" />
          </image>
       </ImageView>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="644.0" layoutY="265.0" onAction="#btnPrintOnAction" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: #34495e;" text="Print Stock Report" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0">
+               <image>
+                  <Image url="@../asserts.icon/icons8-print-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
