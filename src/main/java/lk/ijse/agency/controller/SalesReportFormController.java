@@ -166,14 +166,14 @@ public class SalesReportFormController {
     private boolean validateSale() {
         int num=0;
         String id = txtBillCode.getText();
-        boolean isIdValidate= Pattern.matches("(R0)[0-9]{6}",id);
+        boolean isIdValidate= Pattern.matches("(B0)[0-9]{3,7}",id);
         if (!isIdValidate){
             num=1;
             vibrateTextField(txtBillCode);
         }
 
         String date=txtDate.getText();
-        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10,12}",date);
         if (!isDateValidate){
             num=1;
             vibrateTextField(txtDate);

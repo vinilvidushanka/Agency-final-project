@@ -197,7 +197,7 @@ public class EmployeeFormController {
     private boolean validateEmployee() {
         int num=0;
         String id = txtId.getText();
-        boolean isIDValidate= Pattern.matches("(E0)[A-z 0-9]{5}",id);
+        boolean isIDValidate= Pattern.matches("(EX)[0-9]{3,7}",id);
         if (!isIDValidate){
             num=1;
             vibrateTextField(txtId);
@@ -257,6 +257,7 @@ public class EmployeeFormController {
             boolean isUpdated = EmployeeRepo.update(employee);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "employee updated!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -289,6 +290,7 @@ public class EmployeeFormController {
         boolean isDeleted = EmployeeRepo.delete(id);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "employee deleted!").show();
+            initialize();
         }
     }
 

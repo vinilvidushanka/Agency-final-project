@@ -108,7 +108,10 @@
             <Image url="@../asserts.icon/Remove-bg.ai_1714848354499.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblName" layoutX="305.0" layoutY="205.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label fx:id="lblName" layoutX="305.0" layoutY="205.0" prefHeight="30.0" prefWidth="200.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="828.0" layoutY="515.0" onAction="#btnPlaceReportOnAction" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #34495e;" text="Place Report" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />

@@ -181,6 +181,7 @@ public class CustomerFormController {
             boolean isUpdated = CustomerRepo.update(customer);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -216,7 +217,7 @@ public class CustomerFormController {
     private boolean validateCustomer() {
         int num=0;
         String id = txtId.getText();
-        boolean isIDValidate= Pattern.matches("(C0)[A-z 0-9]{5}",id);
+        boolean isIDValidate= Pattern.matches("(C)[0-9]{3,7}",id);
         if (!isIDValidate){
             num=1;
             vibrateTextField(txtId);
@@ -230,7 +231,7 @@ public class CustomerFormController {
         }
 
         String shopName=txtShopName.getText();
-        boolean isShopNameValidate= Pattern.matches("[A-z]{3,}",shopName);
+        boolean isShopNameValidate= Pattern.matches("[A-z ]{3,}",shopName);
         if (!isShopNameValidate){
             num=1;
             vibrateTextField(txtShopName);
@@ -266,6 +267,7 @@ public class CustomerFormController {
         boolean isDeleted = CustomerRepo.delete(id);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+            initialize();
         }
     }
 

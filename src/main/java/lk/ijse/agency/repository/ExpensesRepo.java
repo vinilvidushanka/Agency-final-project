@@ -40,11 +40,11 @@ public class ExpensesRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, expenses.getCode());
-        pstm.setObject(2, expenses.getVanId());
-        pstm.setObject(4, expenses.getAmount());
+        pstm.setObject(5, expenses.getCode());
+        pstm.setObject(1, expenses.getVanId());
+        pstm.setObject(2, expenses.getAmount());
         pstm.setObject(3, expenses.getDescription());
-        pstm.setObject(5, expenses.getDate());
+        pstm.setObject(4, expenses.getDate());
 
         return pstm.executeUpdate() > 0;
     }

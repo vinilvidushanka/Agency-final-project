@@ -185,7 +185,7 @@ public class ExpensesFormController {
     private boolean validateExpenses() {
         int num=0;
         String code = txtCode.getText();
-        boolean isCodeValidate= Pattern.matches("(EX)[0-9]{6}",code);
+        boolean isCodeValidate= Pattern.matches("(EX)[0-9]{3,7}",code);
         if (!isCodeValidate){
             num=1;
             vibrateTextField(txtCode);
@@ -206,7 +206,7 @@ public class ExpensesFormController {
         }
 
         String date=txtDate.getText();
-        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
         if (!isDateValidate){
             num=1;
             vibrateTextField(txtDate);
@@ -237,6 +237,7 @@ public class ExpensesFormController {
             boolean isUpdated = ExpensesRepo.update(expenses);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "expenses updated!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

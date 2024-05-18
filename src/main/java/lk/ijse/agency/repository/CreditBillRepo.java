@@ -55,11 +55,11 @@ public class CreditBillRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, creditBill.getBillId());
-        pstm.setObject(2, creditBill.getCusId());
-        pstm.setObject(3, creditBill.getRouteId());
-        pstm.setObject(4, creditBill.getAmount());
-        pstm.setObject(5, creditBill.getDate());
+        pstm.setObject(5, creditBill.getBillId());
+        pstm.setObject(1, creditBill.getCusId());
+        pstm.setObject(2, creditBill.getRouteId());
+        pstm.setObject(3, creditBill.getAmount());
+        pstm.setObject(4, creditBill.getDate());
 
         return pstm.executeUpdate() > 0;
     }

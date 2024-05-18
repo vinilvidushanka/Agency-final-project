@@ -169,6 +169,7 @@ public class CreditBillFormController {
                 boolean isSaved = CreditBillRepo.save(creditBill);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "credit bill saved!").show();
+                    initialize();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -179,18 +180,12 @@ public class CreditBillFormController {
     private boolean validateCreditBill() {
         int num=0;
         String id = txtId.getText();
-        boolean isIdValidate= Pattern.matches("(CB0)[0-9]{6}",id);
+        boolean isIdValidate= Pattern.matches("(CB)[0-9]{3,7}",id);
         if (!isIdValidate){
             num=1;
             vibrateTextField(txtId);
         }
 
-        String routeId=txtId11.getText();
-        boolean isRouteValidate= Pattern.matches("(rt0)[0-9]{5}",routeId);
-        if (!isRouteValidate){
-            num=1;
-            vibrateTextField(txtId11);
-        }
 
         String amount=txtId1.getText();
         boolean isAmountValidate= Pattern.matches("[0-9 .]{3,}",amount);
@@ -200,7 +195,7 @@ public class CreditBillFormController {
         }
 
         String date=txtId21.getText();
-        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
         if (!isDateValidate){
             num=1;
             vibrateTextField(txtId21);
@@ -231,6 +226,7 @@ public class CreditBillFormController {
             boolean isUpdated = CreditBillRepo.update(creditBill);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "credit bill updated!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

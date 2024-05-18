@@ -149,14 +149,14 @@ public class DailyLoadingController {
     private boolean validateLoading() {
         int num=0;
         String id = txtId.getText();
-        boolean isIdValidate= Pattern.matches("(R0)[0-9]{6}",id);
+        boolean isIdValidate= Pattern.matches("(R0)[0-9]{3,7}",id);
         if (!isIdValidate){
             num=1;
             vibrateTextField(txtId);
         }
 
         String date=txtDate.getText();
-        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
         if (!isDateValidate){
             num=1;
             vibrateTextField(txtDate);

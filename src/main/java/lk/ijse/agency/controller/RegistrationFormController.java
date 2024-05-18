@@ -36,7 +36,7 @@ public class RegistrationFormController {
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
 
-        boolean isValidate = validatelogin();
+        boolean isValidate = validateRegister();
         if (isValidate) {
             String Id = txtUserId.getText();
             String userName = txtUsername.getText();
@@ -46,10 +46,10 @@ public class RegistrationFormController {
         }
     }
 
-    private boolean validatelogin() {
+    private boolean validateRegister() {
         int num=0;
         String id = txtUserId.getText();
-        boolean isIDValidate= Pattern.matches("(DA0)[0-9]{5}",id);
+        boolean isIDValidate= Pattern.matches("(DA)[0-9]{3,7}",id);
         if (!isIDValidate){
             num=1;
             vibrateTextField(txtUserId);

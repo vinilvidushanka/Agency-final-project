@@ -13,7 +13,6 @@ import java.util.List;
 
 public class CustomerRepo {
     public static boolean save(Customer customer) throws SQLException {
-//        In here you can now save your customer
         String sql = "INSERT INTO customer VALUES(?, ?, ?, ?,?,?)";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
@@ -36,12 +35,12 @@ public class CustomerRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, customer.getId());
-        pstm.setObject(2, customer.getName());
-        pstm.setObject(3, customer.getShopName());
-        pstm.setObject(4, customer.getContact());
-        pstm.setObject(5, customer.getAddress());
-        pstm.setObject(6, customer.getRouteId());
+        pstm.setObject(6, customer.getId());
+        pstm.setObject(1, customer.getName());
+        pstm.setObject(2, customer.getShopName());
+        pstm.setObject(3, customer.getContact());
+        pstm.setObject(4, customer.getAddress());
+        pstm.setObject(5, customer.getRouteId());
 
         return pstm.executeUpdate() > 0;
     }

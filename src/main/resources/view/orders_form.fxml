@@ -117,6 +117,9 @@
             <Image url="@../asserts.icon/clip-man-with-clipboard-receiving-delivery.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblName" layoutX="305.0" layoutY="205.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label fx:id="lblName" layoutX="305.0" layoutY="205.0" prefHeight="30.0" prefWidth="200.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
    </children>
 </AnchorPane>

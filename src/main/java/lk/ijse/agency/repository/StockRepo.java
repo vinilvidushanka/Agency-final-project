@@ -25,12 +25,6 @@ public class StockRepo {
 
         return pstm.executeUpdate() > 0;
 
-        /*int affectedRows = pstm.executeUpdate();
-        if (affectedRows > 0) {
-            return true;
-        } else {
-            return false;
-        }*/
     }
 
     public static boolean update(Stock stock) throws SQLException {
@@ -39,10 +33,10 @@ public class StockRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, stock.getItemCode());
-        pstm.setObject(2, stock.getName());
-        pstm.setObject(3, stock.getQty());
-        pstm.setObject(4, stock.getUnitPrice());
+        pstm.setObject(4, stock.getItemCode());
+        pstm.setObject(1, stock.getName());
+        pstm.setObject(2, stock.getQty());
+        pstm.setObject(3, stock.getUnitPrice());
 
 
         return pstm.executeUpdate() > 0;
@@ -95,7 +89,7 @@ public class StockRepo {
     }
 
     public static List<String> getIds() throws SQLException {
-        String sql = "SELECT item_code FROM stock";
+        String sql = "SELECT code FROM stock";
 
         Connection connection = DbConnection.getInstance().getConnection();
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
@@ -152,7 +146,7 @@ public class StockRepo {
     }
     private static boolean updateQty(OrderDetail od) throws SQLException {
         System.out.println("stock save");
-        String sql = "UPDATE stock SET qty = qty + ? WHERE item_code = ?";
+        String sql = "UPDATE stock SET qty = qty + ? WHERE code = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 

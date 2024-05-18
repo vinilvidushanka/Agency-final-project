@@ -58,12 +58,12 @@ public class SalaryRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, salary.getSalaryId());
-        pstm.setObject(2, salary.getEmpId());
-        pstm.setObject(3, salary.getName());
-        pstm.setObject(4, salary.getMonth());
-        pstm.setObject(5, salary.getAmount());
-        pstm.setObject(6, salary.getDate());
+        pstm.setObject(6, salary.getSalaryId());
+        pstm.setObject(1, salary.getEmpId());
+        pstm.setObject(2, salary.getName());
+        pstm.setObject(3, salary.getMonth());
+        pstm.setObject(4, salary.getAmount());
+        pstm.setObject(5, salary.getDate());
 
         return pstm.executeUpdate() > 0;
     }

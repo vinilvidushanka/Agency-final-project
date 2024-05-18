@@ -157,7 +157,7 @@ public class StockFormController {
     private boolean validateStock() {
         int num=0;
         String code = txtId.getText();
-        boolean isCodeValidate= Pattern.matches("(it0)[0-9]{7}",code);
+        boolean isCodeValidate= Pattern.matches("(it0)[0-9]{3,7}",code);
         if (!isCodeValidate){
             num=1;
             vibrateTextField(txtId);
@@ -171,7 +171,7 @@ public class StockFormController {
         }
 
         String uPrice=txtUnitPrice.getText();
-        boolean isPriceValidate= Pattern.matches("[0-9 .]{3,}",uPrice);
+        boolean isPriceValidate= Pattern.matches("[0-9 .]{2,}",uPrice);
         if (!isPriceValidate){
             num=1;
             vibrateTextField(txtUnitPrice);
@@ -209,6 +209,7 @@ public class StockFormController {
             boolean isUpdated = StockRepo.update(stock);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "stock updated!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -240,6 +241,7 @@ public class StockFormController {
         boolean isDeleted = StockRepo.delete(itemCode);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "item deleted!").show();
+            initialize();
         }
     }
 
@@ -248,7 +250,7 @@ public class StockFormController {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
 
-            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/report/agencyStock.jrxml"));
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/report/stockReportAgency.jrxml"));
             JasperReport jasperReport = JasperCompileManager.compileReport(load);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null,connection);
             JasperViewer.viewReport(jasperPrint, false);

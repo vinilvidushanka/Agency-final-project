@@ -14,16 +14,21 @@
       <AnchorPane accessibleRole="TEXT_FIELD" layoutY="-1.0" prefHeight="544.0" prefWidth="420.0" style="-fx-background-color: white;">
 
                      <children>
+            <ImageView fitHeight="544.0" fitWidth="420.0" opacity="0.42">
+               <image>
+                  <Image url="@../asserts.icon/9307421%20bg.png" />
+               </image>
+            </ImageView>
             <Label layoutX="85.0" layoutY="223.0" text="User ID" />
             <Label layoutX="124.0" layoutY="167.0" text="Registration Form" textFill="#868484">
                <font>
                   <Font name="Tahoma Bold" size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUserId" layoutX="82.0" layoutY="246.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your user id here" styleClass="edge-button" stylesheets="@../../../../../First-semmester-final-project/src/main/resources/style/Style.css" />
+            <TextField fx:id="txtUserId" layoutX="82.0" layoutY="246.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your user id here" />
             <Label layoutX="85.0" layoutY="292.0" text="Username" />
-            <TextField fx:id="txtUsername" layoutX="82.0" layoutY="310.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your username here" styleClass="edge-button" stylesheets="@../../../../../First-semmester-final-project/src/main/resources/style/Style.css" />
-            <TextField fx:id="txtPassword" layoutX="82.0" layoutY="372.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your password here" styleClass="edge-button" stylesheets="@../../../../../First-semmester-final-project/src/main/resources/style/Style.css" />
+            <TextField fx:id="txtUsername" layoutX="82.0" layoutY="310.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your username here" />
+            <TextField fx:id="txtPassword" layoutX="82.0" layoutY="372.0" prefHeight="28.0" prefWidth="256.0" promptText="Input your password here" styleClass="edge-button" />
             <Label layoutX="84.0" layoutY="354.0" text="Password" />
             <JFXButton buttonType="RAISED" graphicTextGap="20.0" layoutX="85.0" layoutY="454.0" onAction="#btnRegisterOnAction" prefHeight="28.0" prefWidth="246.0" style="-fx-background-color: #0077b6;" text="Register Now" textFill="WHITE">
                <cursor>

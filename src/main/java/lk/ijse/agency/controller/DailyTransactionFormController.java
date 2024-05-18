@@ -149,6 +149,7 @@ public class DailyTransactionFormController {
         boolean isDeleted = DailyTransactionRepo.delete(billId);
         if (isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "transaction deleted!").show();
+            initialize();
         }
     }
 
@@ -180,7 +181,7 @@ public class DailyTransactionFormController {
     private boolean validateTransaction() {
         int num=0;
         String id = txtId.getText();
-        boolean isIdValidate= Pattern.matches("(B0)[0-9]{5}",id);
+        boolean isIdValidate= Pattern.matches("(B0)[0-9]{3,7}",id);
         if (!isIdValidate){
             num=1;
             vibrateTextField(txtId);
@@ -194,7 +195,7 @@ public class DailyTransactionFormController {
         }
 
         String date=txtDate.getText();
-        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10,12}",date);
         if (!isDateValidate){
             num=1;
             vibrateTextField(txtDate);
@@ -225,6 +226,7 @@ public class DailyTransactionFormController {
             boolean isUpdated = DailyTransactionRepo.update(dailyTransaction);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "daily transaction updated!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

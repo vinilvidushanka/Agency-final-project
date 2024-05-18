@@ -187,7 +187,7 @@ public class SalaryFormController {
     private boolean validateSalary() {
         int num=0;
         String id = txtId.getText();
-        boolean isIDValidate= Pattern.matches("(S0)[0-9]{5}",id);
+        boolean isIDValidate= Pattern.matches("(S0)[0-9]{3,7}",id);
         if (!isIDValidate){
             num=1;
             vibrateTextField(txtId);
@@ -215,7 +215,7 @@ public class SalaryFormController {
         }
 
         String date=txtDate.getText();
-        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        boolean isDateValidate= Pattern.matches("[0-9 -]{10}",date);
         if (!isDateValidate){
             num=1;
             vibrateTextField(txtDate);
@@ -246,6 +246,7 @@ public class SalaryFormController {
             boolean isUpdated = SalaryRepo.update(salary);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "salary updated!").show();
+                initialize();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

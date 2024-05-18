@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="change">
+    <list default="true" id="1046fb97-02e2-4b33-a6a6-c89fcf41f880" name="Changes" comment="validate">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asserts.icon/9307421 bg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CreditBillFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CreditBillFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/CustomerFormController.java" afterDir="false" />
@@ -17,10 +18,21 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalaryFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/SalesReportFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/controller/StockFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/util/ValidateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/util/ValidateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CreditBillRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CreditBillRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/CustomerRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/DailyTransactionRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/DailyTransactionRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/EmployeeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/EmployeeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ExpensesRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/ExpensesRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/SalaryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/SalaryRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/agency/repository/StockRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/report/agencyStock.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/report/stockReportAgency.jrxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dailyLoading_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dailyLoading_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/expenses_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/orders_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registration_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/registration_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/salesreport_form.fxml" afterDir="false" />
     </list>
@@ -158,7 +170,7 @@
       <workItem from="1715910636667" duration="3001000" />
       <workItem from="1715914827281" duration="718000" />
       <workItem from="1715922703351" duration="9323000" />
-      <workItem from="1715961893371" duration="6963000" />
+      <workItem from="1715961893371" duration="20260000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -184,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715933250372</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="validate">
+      <option name="closed" value="true" />
+      <created>1716003416869</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716003416869</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +223,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change" />
-    <option name="LAST_COMMIT_MESSAGE" value="change" />
+    <MESSAGE value="validate" />
+    <option name="LAST_COMMIT_MESSAGE" value="validate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

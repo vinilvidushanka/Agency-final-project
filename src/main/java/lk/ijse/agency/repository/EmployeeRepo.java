@@ -42,12 +42,12 @@ public class EmployeeRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, employee.getId());
-        pstm.setObject(2, employee.getName());
-        pstm.setObject(3, employee.getNic());
-        pstm.setObject(4, employee.getAddress());
-        pstm.setObject(5, employee.getContact());
-        pstm.setObject(6, employee.getVanId());
+        pstm.setObject(6, employee.getId());
+        pstm.setObject(1, employee.getName());
+        pstm.setObject(2, employee.getNic());
+        pstm.setObject(3, employee.getAddress());
+        pstm.setObject(4, employee.getContact());
+        pstm.setObject(5, employee.getVanId());
 
         return pstm.executeUpdate() > 0;
     }

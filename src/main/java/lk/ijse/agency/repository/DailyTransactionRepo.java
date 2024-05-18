@@ -53,10 +53,10 @@ public class DailyTransactionRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, dailyTransaction.getBillId());
-        pstm.setObject(2, dailyTransaction.getAmount());
-        pstm.setObject(3, dailyTransaction.getDate());
-        pstm.setObject(4, dailyTransaction.getVanId());
+        pstm.setObject(4, dailyTransaction.getBillId());
+        pstm.setObject(1, dailyTransaction.getAmount());
+        pstm.setObject(2, dailyTransaction.getDate());
+        pstm.setObject(3, dailyTransaction.getVanId());
 
 
         return pstm.executeUpdate() > 0;
