@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.agency.db.DbConnection;
 import lk.ijse.agency.model.Customer;
 import lk.ijse.agency.model.Stock;
@@ -31,6 +35,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class StockFormController {
 
@@ -126,22 +131,67 @@ public class StockFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String item_code = txtId.getText();
-        String name = txtName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        double unit_price = Double.parseDouble(txtUnitPrice.getText());
+        boolean isValidate = validateStock();
+
+        if (isValidate) {
+            String item_code = txtId.getText();
+            String name = txtName.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            double unit_price = Double.parseDouble(txtUnitPrice.getText());
 
 
-        Stock stock = new Stock(item_code, name, qty, unit_price);
+            Stock stock = new Stock(item_code, name, qty, unit_price);
 
-        try {
-            boolean isSaved = StockRepo.save(stock);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "stock saved!").show();
-                initialize();
+            try {
+                boolean isSaved = StockRepo.save(stock);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "stock saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private boolean validateStock() {
+        int num=0;
+        String code = txtId.getText();
+        boolean isCodeValidate= Pattern.matches("(it0)[0-9]{7}",code);
+        if (!isCodeValidate){
+            num=1;
+            vibrateTextField(txtId);
+        }
+
+        String name=txtName.getText();
+        boolean isNameValidate= Pattern.matches("[A-z 0-9]{3,}",name);
+        if (!isNameValidate){
+            num=1;
+            vibrateTextField(txtName);
+        }
+
+        String uPrice=txtUnitPrice.getText();
+        boolean isPriceValidate= Pattern.matches("[0-9 .]{3,}",uPrice);
+        if (!isPriceValidate){
+            num=1;
+            vibrateTextField(txtUnitPrice);
+        }
+
+        String qty=txtQty.getText();
+        boolean isQtyValidate= Pattern.matches("[0-9 ]{1,}",qty);
+        if (!isQtyValidate){
+            num=1;
+            vibrateTextField(txtQty);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 
@@ -205,5 +255,29 @@ public class StockFormController {
         } catch (JRException | SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
+
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
     }
 }

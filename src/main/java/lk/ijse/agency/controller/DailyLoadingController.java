@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.agency.model.*;
 import lk.ijse.agency.model.tm.CartTm;
 import lk.ijse.agency.model.tm.LoadingDetailTm;
@@ -19,6 +23,7 @@ import lk.ijse.agency.repository.VanRepo;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class DailyLoadingController {
 
@@ -112,29 +117,69 @@ public class DailyLoadingController {
 
     @FXML
     void btnAddItemOnAction(ActionEvent event) {
-        String itemCode = cmbItemCode.getValue();
-        String itemName = lblName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        String vanId = cmbVanId.getValue();
-        String repoId = txtId.getId();
-        String date = txtDate.getId();
+        boolean isValidate = validateLoading();
 
-        for (int i = 0; i < tblLoadingReport.getItems().size(); i++) {
-            if (itemCode.equals(colItemCode.getCellData(i))) {
+        if (isValidate) {
+            String itemCode = cmbItemCode.getValue();
+            String itemName = lblName.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            String vanId = cmbVanId.getValue();
+            String repoId = txtId.getId();
+            String date = txtDate.getId();
 
-                qty = loadList.get(i).getQty();
-                loadList.get(i).setQty(qty);
+            for (int i = 0; i < tblLoadingReport.getItems().size(); i++) {
+                if (itemCode.equals(colItemCode.getCellData(i))) {
 
-                tblLoadingReport.refresh();
+                    qty = loadList.get(i).getQty();
+                    loadList.get(i).setQty(qty);
 
+                    tblLoadingReport.refresh();
+
+                }
             }
+
+            LoadingTm loadingTm = new LoadingTm(itemCode, itemName, qty, vanId, repoId, date);
+
+            loadList.add(loadingTm);
+
+            tblLoadingReport.setItems(loadList);
+        }
+    }
+
+    private boolean validateLoading() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(R0)[0-9]{6}",id);
+        if (!isIdValidate){
+            num=1;
+            vibrateTextField(txtId);
         }
 
-        LoadingTm loadingTm = new LoadingTm(itemCode, itemName, qty, vanId, repoId, date);
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        if (!isDateValidate){
+            num=1;
+            vibrateTextField(txtDate);
+        }
 
-        loadList.add(loadingTm);
+        String qty=txtQty.getText();
+        boolean isQtyValidate= Pattern.matches("[0-9]{1,}",qty);
+        if (!isQtyValidate){
+            num=1;
+            vibrateTextField(txtQty);
+        }
 
-        tblLoadingReport.setItems(loadList);
+
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
     }
 
     @FXML
@@ -208,5 +253,29 @@ public class DailyLoadingController {
     @FXML
     void cmbVanIdOnAction(ActionEvent event) {
         //btnAddItemOnAction(event);
+    }
+
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
+
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
     }
 }

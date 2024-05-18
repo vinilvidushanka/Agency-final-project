@@ -20,10 +20,10 @@ public class ValidateUtil {
     }
 
     private static void addError(TextField key) {
-        key.setStyle("-fx-border-color: red; -fx-border-radius: 10; -fx-background-radius: 10");
+        key.setStyle("-fx-border-color: red; ");
     }
 
     private static void removeError(TextField key) {
-        key.setStyle("-fx-border-color: green; -fx-border-radius: 10; -fx-background-radius: 10");
+        key.setStyle("-fx-border-color: green;");
     }
 }

@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.agency.model.Employee;
 import lk.ijse.agency.model.Expenses;
 import lk.ijse.agency.model.tm.ExpensesTm;
@@ -25,6 +29,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ExpensesFormController {
 
@@ -154,22 +159,67 @@ public class ExpensesFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String code = txtCode.getText();
-        String vanId = cmbVanId.getValue();
-        double amount = Double.parseDouble(txtAmount.getText());
-        String description = txtDescription.getText();
-        String date = txtDate.getText();
+        boolean isValidate = validateExpenses();
 
-        Expenses expenses = new Expenses(code, vanId, amount, description,date);
+        if (isValidate) {
+            String code = txtCode.getText();
+            String vanId = cmbVanId.getValue();
+            double amount = Double.parseDouble(txtAmount.getText());
+            String description = txtDescription.getText();
+            String date = txtDate.getText();
 
-        try {
-            boolean isSaved = ExpensesRepo.save(expenses);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "expenses saved!").show();
-                initialize();
+            Expenses expenses = new Expenses(code, vanId, amount, description, date);
+
+            try {
+                boolean isSaved = ExpensesRepo.save(expenses);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "expenses saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private boolean validateExpenses() {
+        int num=0;
+        String code = txtCode.getText();
+        boolean isCodeValidate= Pattern.matches("(EX)[0-9]{6}",code);
+        if (!isCodeValidate){
+            num=1;
+            vibrateTextField(txtCode);
+        }
+
+        String amount=txtAmount.getText();
+        boolean isAmountValidate= Pattern.matches("[0-9 .]{3,}",amount);
+        if (!isAmountValidate){
+            num=1;
+            vibrateTextField(txtAmount);
+        }
+
+        String description=txtDescription.getText();
+        boolean isDescriptonValidate= Pattern.matches("[A-z]{3,}",description);
+        if (!isDescriptonValidate){
+            num=1;
+            vibrateTextField(txtDescription);
+        }
+
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        if (!isDateValidate){
+            num=1;
+            vibrateTextField(txtDate);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 
@@ -223,7 +273,27 @@ public class ExpensesFormController {
         }
     }
 
-    public void txtKeyRelease(KeyEvent keyEvent) {
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
 
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
     }
 }

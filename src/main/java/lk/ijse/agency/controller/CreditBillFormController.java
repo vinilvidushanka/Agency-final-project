@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.agency.model.CreditBill;
 import lk.ijse.agency.model.Customer;
 import lk.ijse.agency.model.Employee;
@@ -21,6 +25,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class CreditBillFormController {
 
@@ -149,23 +154,67 @@ public class CreditBillFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String billId = txtId.getText();
-        String cusId = cmbCusId.getValue();
-        String routeId = txtId11.getText();
-        double amount = Double.valueOf(txtId1.getText());
-        String date = txtId21.getText();
+        boolean isValidate = validateCreditBill();
 
-        CreditBill creditBill = new CreditBill(billId, cusId, routeId, amount,date);
+        if (isValidate) {
+            String billId = txtId.getText();
+            String cusId = cmbCusId.getValue();
+            String routeId = txtId11.getText();
+            double amount = Double.valueOf(txtId1.getText());
+            String date = txtId21.getText();
 
-        try {
-            boolean isSaved = CreditBillRepo.save(creditBill);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "credit bill saved!").show();
+            CreditBill creditBill = new CreditBill(billId, cusId, routeId, amount, date);
+
+            try {
+                boolean isSaved = CreditBillRepo.save(creditBill);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "credit bill saved!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private boolean validateCreditBill() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(CB0)[0-9]{6}",id);
+        if (!isIdValidate){
+            num=1;
+            vibrateTextField(txtId);
         }
 
+        String routeId=txtId11.getText();
+        boolean isRouteValidate= Pattern.matches("(rt0)[0-9]{5}",routeId);
+        if (!isRouteValidate){
+            num=1;
+            vibrateTextField(txtId11);
+        }
+
+        String amount=txtId1.getText();
+        boolean isAmountValidate= Pattern.matches("[0-9 .]{3,}",amount);
+        if (!isAmountValidate){
+            num=1;
+            vibrateTextField(txtId1);
+        }
+
+        String date=txtId21.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        if (!isDateValidate){
+            num=1;
+            vibrateTextField(txtId21);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
     }
 
     @FXML
@@ -232,5 +281,29 @@ public class CreditBillFormController {
         txtId11.setText("");
         txtId1.setText("");
         txtId21.setText("");
+    }
+
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
+
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
     }
 }

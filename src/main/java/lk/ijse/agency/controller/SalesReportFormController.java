@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.agency.model.*;
 import lk.ijse.agency.model.tm.SaleCartTm;
 import lk.ijse.agency.repository.ItemRepo;
@@ -85,15 +89,6 @@ public class SalesReportFormController {
         getItemCode();
         getVanId();
 
-        Pattern patternBillCode = Pattern.compile("^(B0)[0-9]{5}$");
-        Pattern patternDate = Pattern.compile("^[0-9 -]{3,}$");  //[0-9 a-z]{10}
-        Pattern patternQty = Pattern.compile("^[0-9 ]{1,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
-        Pattern patternFQty = Pattern.compile("^[0-9]{1,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
-
-        map.put(txtBillCode, patternBillCode);
-        map.put(txtDate, patternDate);
-        map.put(txtQty, patternQty);
-        map.put(txtFQty, patternFQty);
     }
 
     private void getVanId() {
@@ -136,32 +131,77 @@ public class SalesReportFormController {
 
     @FXML
     void btnAddItemOnAction( ) {
-        String billCode=txtBillCode.getText();
-        String itemCode = cmbItemCode.getValue();
-        String itemName = lblName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        double unitPrice = Double.parseDouble(lblPrice.getText());
-        double amount = qty * unitPrice;
-        String date=txtDate.getText();
-        String vanId=cmbVanId.getValue();
-        int freeQty = Integer.parseInt(txtFQty.getText());
+        boolean isValidate = validateSale();
 
-        for (int i = 0; i < tblSale.getItems().size(); i++) {
-            if (itemCode.equals(colAmount.getCellData(i))) {
+        if (isValidate) {
+            String billCode = txtBillCode.getText();
+            String itemCode = cmbItemCode.getValue();
+            String itemName = lblName.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            double unitPrice = Double.parseDouble(lblPrice.getText());
+            double amount = qty * unitPrice;
+            String date = txtDate.getText();
+            String vanId = cmbVanId.getValue();
+            int freeQty = Integer.parseInt(txtFQty.getText());
 
-                qty = cartList.get(i).getQty();
-                cartList.get(i).setQty(qty);
+            for (int i = 0; i < tblSale.getItems().size(); i++) {
+                if (itemCode.equals(colAmount.getCellData(i))) {
 
-                tblSale.refresh();
+                    qty = cartList.get(i).getQty();
+                    cartList.get(i).setQty(qty);
+
+                    tblSale.refresh();
+                }
             }
+
+            SaleCartTm saleCartTm = new SaleCartTm(billCode, itemCode, itemName, qty, unitPrice, amount, date, vanId, freeQty);
+
+            cartList.add(saleCartTm);
+
+            tblSale.setItems(cartList);
+            calculateAmount();
+        }
+    }
+
+    private boolean validateSale() {
+        int num=0;
+        String id = txtBillCode.getText();
+        boolean isIdValidate= Pattern.matches("(R0)[0-9]{6}",id);
+        if (!isIdValidate){
+            num=1;
+            vibrateTextField(txtBillCode);
         }
 
-        SaleCartTm saleCartTm = new SaleCartTm(billCode,itemCode, itemName, qty,unitPrice,amount,date,vanId,freeQty);
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        if (!isDateValidate){
+            num=1;
+            vibrateTextField(txtDate);
+        }
 
-        cartList.add(saleCartTm);
+        String qty=txtQty.getText();
+        boolean isQtyValidate= Pattern.matches("[0-9]{1,}",qty);
+        if (!isQtyValidate){
+            num=1;
+            vibrateTextField(txtQty);
+        }
 
-        tblSale.setItems(cartList);
-        calculateAmount();
+        String Fqty=txtFQty.getText();
+        boolean isFQtyValidate= Pattern.matches("[0-9]{1,}",Fqty);
+        if (!isFQtyValidate){
+            num=1;
+            vibrateTextField(txtFQty);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
     }
 
     private void calculateAmount() {
@@ -252,16 +292,27 @@ public class SalesReportFormController {
         btnAddItemOnAction();
     }
 
-    public void txtKeyRelease(KeyEvent keyEvent) {
-        if (keyEvent.getCode() == KeyCode.ENTER) {
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
 
-            Object respond =  ValidateUtil.validation(map);
-            if (respond instanceof TextField) {
-                TextField textField = (TextField) respond;
-                textField.requestFocus();
-            } else {
-                btnAddItemOnAction();
-            }
-        }
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
     }
 }

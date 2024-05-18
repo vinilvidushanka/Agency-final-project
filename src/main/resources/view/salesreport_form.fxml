@@ -31,7 +31,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtBillCode" layoutX="143.0" layoutY="101.0" onAction="#txtAddOrderIdOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtBillCode" layoutX="143.0" layoutY="101.0" onAction="#txtAddOrderIdOnAction" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -39,7 +39,7 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtDate" layoutX="479.0" layoutY="101.0" onAction="#txtAddDateOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtDate" layoutX="479.0" layoutY="101.0" onAction="#txtAddDateOnAction" prefHeight="30.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -75,7 +75,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQty" layoutX="605.0" layoutY="195.0" onAction="#txtQtyOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtQty" layoutX="605.0" layoutY="195.0" onAction="#txtQtyOnAction" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -89,7 +89,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFQty" layoutX="704.0" layoutY="195.0" onAction="#txtFQtyOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtFQty" layoutX="704.0" layoutY="195.0" onAction="#txtFQtyOnAction" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>

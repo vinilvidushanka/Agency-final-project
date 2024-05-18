@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.agency.model.Order;
 import lk.ijse.agency.model.OrderDetail;
 import lk.ijse.agency.model.PlaceOrder;
@@ -27,6 +31,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class OrdersFromController {
 
@@ -95,30 +100,69 @@ public class OrdersFromController {
 
     @FXML
     void btnAddItemOnAction(ActionEvent event) {
-        String itemCode = cmbItemCode.getValue();
-        String name = lblName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        String orderId= txtId.getId();
-        String date=txtDate.getText();
+        boolean isValidate = validateOrders();
 
-        for (int i = 0; i < tblOrders.getItems().size(); i++) {
-            if (itemCode.equals(colItemCode.getCellData(i))) {
-                qty += cartList.get(i).getQty();
+        if (isValidate) {
+            String itemCode = cmbItemCode.getValue();
+            String name = lblName.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            String orderId = txtId.getId();
+            String date = txtDate.getText();
 
-                cartList.get(i).setQty(qty);
+            for (int i = 0; i < tblOrders.getItems().size(); i++) {
+                if (itemCode.equals(colItemCode.getCellData(i))) {
+                    qty += cartList.get(i).getQty();
 
-                tblOrders.refresh();
+                    cartList.get(i).setQty(qty);
 
-                return;
+                    tblOrders.refresh();
+
+                    return;
+                }
             }
+
+            CartTm cartTm = new CartTm(itemCode, name, qty, orderId, date);
+
+            cartList.add(cartTm);
+
+            tblOrders.setItems(cartList);
+        }
+    }
+
+    private boolean validateOrders() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(R0)[0-9]{6}",id);
+        if (!isIdValidate){
+            num=1;
+            vibrateTextField(txtId);
         }
 
-        CartTm cartTm = new CartTm(itemCode, name, qty, orderId, date);
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        if (!isDateValidate){
+            num=1;
+            vibrateTextField(txtDate);
+        }
 
-        cartList.add(cartTm);
+        String qty=txtQty.getText();
+        boolean isQtyValidate= Pattern.matches("[0-9]{1,}",qty);
+        if (!isQtyValidate){
+            num=1;
+            vibrateTextField(txtQty);
+        }
 
-        tblOrders.setItems(cartList);
 
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
+        }
     }
 
     @FXML
@@ -196,20 +240,27 @@ public class OrdersFromController {
         btnAddItemOnAction(event);
     }
 
-    public void btnPrintOnAction(ActionEvent event) {
-        HashMap hashmap = new HashMap<>();
-        hashmap.put("id", txtId.getText());
-        hashmap.put("code", cmbItemCode.getValue());
-        hashmap.put("name",lblName.getText());
-        hashmap.put("qty", txtQty.getText());
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
 
-        try {
-            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/report/agencyReport.jrxml"));
-            JasperReport jasperReport = JasperCompileManager.compileReport(load);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hashmap, new JREmptyDataSource());
-            JasperViewer.viewReport(jasperPrint, false);
-        } catch (JRException e) {
-            throw new RuntimeException(e);
-        }
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
     }
 }

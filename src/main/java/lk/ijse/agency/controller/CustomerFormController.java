@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.agency.model.Customer;
 import lk.ijse.agency.model.tm.CustomerTm;
 import lk.ijse.agency.repository.CustomerRepo;
@@ -93,18 +97,6 @@ public class CustomerFormController {
         setCellValueFactory();
         loadCustomerTable();
         getRouteId();
-
-        Pattern patternId = Pattern.compile("^(C0)[0-9]{5}$");
-        Pattern patternName = Pattern.compile("^[A-z]{3,}$");  //[0-9 a-z]{10}
-        Pattern patternShopName = Pattern.compile("^[A-z]{3,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
-        Pattern patternContact = Pattern.compile("^[0-9]{10}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
-        Pattern patternAddress = Pattern.compile("^[A-z]{3,}$"); //[0-9 A-z / .]{3,} // ^[0-9]{10}$  //^(070 |071 | 072 | 076) [0-9] {7}$
-
-        map.put(txtId, patternId);
-        map.put(txtName, patternName);
-        map.put(txtShopName, patternShopName);
-        map.put(txtContact, patternContact);
-        map.put(txtAddress, patternAddress);
 
     }
 
@@ -196,23 +188,75 @@ public class CustomerFormController {
     }
 
     public void btnSaveOnAction() {
-        String id = txtId.getText();
-        String name = txtName.getText();
-        String shopName = txtShopName.getText();
-        String contact = txtContact.getText();
-        String address = txtAddress.getText();
-        String routeId = cmbRouteId.getValue();
 
-        Customer customer = new Customer(id, name, shopName, contact,address,routeId);
+        boolean isValidate = validateCustomer();
 
-        try {
-            boolean isSaved = CustomerRepo.save(customer);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
-                initialize();
+        if (isValidate){
+            String id = txtId.getText();
+            String name = txtName.getText();
+            String shopName = txtShopName.getText();
+            String contact = txtContact.getText();
+            String address = txtAddress.getText();
+            String routeId = cmbRouteId.getValue();
+
+            Customer customer = new Customer(id, name, shopName, contact,address,routeId);
+
+            try {
+                boolean isSaved = CustomerRepo.save(customer);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private boolean validateCustomer() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIDValidate= Pattern.matches("(C0)[A-z 0-9]{5}",id);
+        if (!isIDValidate){
+            num=1;
+            vibrateTextField(txtId);
+        }
+
+        String name=txtName.getText();
+        boolean isNameValidate= Pattern.matches("[A-z]{3,}",name);
+        if (!isNameValidate){
+            num=1;
+            vibrateTextField(txtName);
+        }
+
+        String shopName=txtShopName.getText();
+        boolean isShopNameValidate= Pattern.matches("[A-z]{3,}",shopName);
+        if (!isShopNameValidate){
+            num=1;
+            vibrateTextField(txtShopName);
+        }
+
+        String contact=txtContact.getText();
+        boolean isContactValidate= Pattern.matches("[0-9]{10}",contact);
+        if (!isContactValidate){
+            num=1;
+            vibrateTextField(txtContact);
+        }
+
+        String address=txtAddress.getText();
+        boolean isAddressValidate= Pattern.matches("[A-z]{3,}",address);
+        if (!isAddressValidate){
+            num=1;
+            vibrateTextField(txtAddress);
+        }
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 
@@ -225,16 +269,27 @@ public class CustomerFormController {
         }
     }
 
-    public void txtKeyRelease(KeyEvent keyEvent) {
-        if (keyEvent.getCode() == KeyCode.ENTER) {
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
 
-            Object respond =  ValidateUtil.validation(map);
-            if (respond instanceof TextField) {
-                TextField textField = (TextField) respond;
-                textField.requestFocus();
-            } else {
-                btnSaveOnAction();
-            }
-        }
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
     }
 }

@@ -1,5 +1,8 @@
 package lk.ijse.agency.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.agency.model.Customer;
 import lk.ijse.agency.model.DailyTransaction;
 import lk.ijse.agency.model.tm.DailyTransactionTm;
@@ -21,6 +25,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class DailyTransactionFormController {
 
@@ -149,22 +154,60 @@ public class DailyTransactionFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String billId = txtId.getText();
-        double amount = Double.parseDouble(txtAmount.getText());
-        String date = txtDate.getText();
-        String vanId = cmbVanId.getValue();
+        boolean isValidate = validateTransaction();
+
+        if (isValidate) {
+            String billId = txtId.getText();
+            double amount = Double.parseDouble(txtAmount.getText());
+            String date = txtDate.getText();
+            String vanId = cmbVanId.getValue();
 
 
-        DailyTransaction dailyTransaction = new DailyTransaction(billId, amount, date, vanId);
+            DailyTransaction dailyTransaction = new DailyTransaction(billId, amount, date, vanId);
 
-        try {
-            boolean isSaved = DailyTransactionRepo.save(dailyTransaction);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "daily transaction saved!").show();
-                initialize();
+            try {
+                boolean isSaved = DailyTransactionRepo.save(dailyTransaction);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "daily transaction saved!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private boolean validateTransaction() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isIdValidate= Pattern.matches("(B0)[0-9]{5}",id);
+        if (!isIdValidate){
+            num=1;
+            vibrateTextField(txtId);
+        }
+
+        String amount=txtAmount.getText();
+        boolean isAmountValidate= Pattern.matches("[0-9 .]{3,}",amount);
+        if (!isAmountValidate){
+            num=1;
+            vibrateTextField(txtAmount);
+        }
+
+        String date=txtDate.getText();
+        boolean isDateValidate= Pattern.matches("[0-9 -]{12}",date);
+        if (!isDateValidate){
+            num=1;
+            vibrateTextField(txtDate);
+        }
+
+
+        if(num==1){
+            num=0;
+            return false;
+        }else {
+            num=0;
+            return true;
+
         }
     }
 
@@ -203,4 +246,27 @@ public class DailyTransactionFormController {
         }
     }
 
+    private void vibrateTextField(TextField textField) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0), new KeyValue(textField.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(100), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(150), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(200), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(250), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(300), new KeyValue(textField.translateXProperty(), 6)),
+                new KeyFrame(Duration.millis(350), new KeyValue(textField.translateXProperty(), -6)),
+                new KeyFrame(Duration.millis(400), new KeyValue(textField.translateXProperty(), 0))
+
+        );
+
+        textField.setStyle("-fx-border-color: red;");
+        timeline.play();
+
+        Timeline timeline1 = new Timeline(
+                new KeyFrame(Duration.seconds(3), new KeyValue(textField.styleProperty(), "-fx-border-color: #bde0fe;"))
+        );
+
+        timeline1.play();
+    }
 }

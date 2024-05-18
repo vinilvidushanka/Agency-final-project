@@ -32,7 +32,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="293.0" layoutY="100.0" onAction="#txtSearchOnAction" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtId" layoutX="293.0" layoutY="100.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -53,7 +53,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="293.0" layoutY="174.0" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtName" layoutX="293.0" layoutY="174.0" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -69,7 +69,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtMonth" layoutX="596.0" layoutY="174.0" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtMonth" layoutX="596.0" layoutY="174.0" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -85,7 +85,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAmount" layoutX="294.0" layoutY="260.0" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtAmount" layoutX="294.0" layoutY="260.0" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -101,7 +101,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDate" layoutX="596.0" layoutY="262.0" onKeyReleased="#txtKeyRelease" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+      <TextField fx:id="txtDate" layoutX="596.0" layoutY="262.0" prefHeight="30.0" prefWidth="206.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
